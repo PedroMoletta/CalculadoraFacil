@@ -1,0 +1,138 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int op, i;
+    float n1, n2;
+    double res, fat;
+
+    do
+    {
+        printf("\n\t\tCalculadora do Projeto Integrador\n\t\t(Integrator Project Calculator)\n\n");
+        printf(" Selecione uma operacao para calcular: (Select an operation to calculate:)\n");
+        printf(" \n 1 - Adicao (Addition)  \t\t\t 2 - Subtracao (Subtraction) \n 3 - Multiplicacao");
+        printf(" (Multiplication)\t\t 4 - Divisao (Division)\n 5 - Quadrado (Square)");
+        printf("\t\t\t\t 6 - Raiz Quadrada (Square Root) \n 7 - Fatorial (Factorial) \t\t\t");
+        printf(" 8 - Exponenciacao (Exponentiation)");
+        printf("\n 9 - Sair  (Exit)\n \n Por Favor escolha: (Please choose an operation):\n");
+
+        scanf("%d", &op);
+        switch (op)
+        {
+            case 1:
+                // adicao
+                printf(" Voce escolheu: Adicao (You chose: Addition)");
+                printf("\n Digite o primeiro numero: (Enter the first number): ");
+                scanf("%f", &n1);
+                printf(" Digite o segundo numero: (Enter the second number):");
+                scanf("%f", &n2);
+                res = n1 + n2;
+                printf("\n===> Soma de dois numeros: (Sum of two numbers): %.2f", res);
+                break;
+
+            case 2:
+                // subtracao
+                printf(" Voce escolheu: subtracao (You chose: subtraction)");
+                printf("\n Digite o primeiro numero: (Enter the first number):");
+                scanf(" %f", &n1);
+                printf(" Digite o segundo numero: (Enter the second number):");
+                scanf(" %f", &n2);
+                res = n1 - n2;
+                printf("\n===> Subtracao dos dois numeros eh: (Subtraction of the two numbers is): %.2f", res);
+                break;
+
+            case 3:
+                // Multiplicacao
+                printf(" Voce escolheu: multiplicacao (You chose: multiplication)");
+                printf("\n Digite o primeiro numero: (Enter the first number):");
+                scanf(" %f", &n1);
+                printf(" Digite o segundo numero: (Enter the second number): ");
+                scanf(" %f", &n2);
+                res = n1 * n2;
+                printf("\n===> Multiplicacao dos dois numeros eh: (Multiplying the two numbers is): %.2f", res);
+                break;
+
+            case 4:
+                // Divisao
+                printf(" Voce escolheu: Divisao (You chose: Division)");
+                printf("\n Digite o primeiro numero: (Enter the first number):\n ");
+                scanf("%f", &n1);
+                printf(" Digite o segundo numero: (Enter the second number):\n ");
+                scanf("%f", &n2);
+                if (n2 == 0)
+                {
+                    printf(" \n Divisor nao pode ser zero. Por favor digite outro valor (Divisor cannot be zero.");
+                    printf("Please enter another value)\n ");
+                    scanf("%f", &n2);
+                }
+                res = n1 / n2;
+                printf("\n===> Divisao dos dois numeros eh: (The division of the two numbers is): %.2f\n", res);
+                break;
+
+            case 5:
+                // quadrado de um numero
+                printf(" Voce escolheu: Quadrado (You chose: Square)\n");
+                printf("Digite um numero: (Enter a number):");
+                scanf("%f", &n1);
+
+                res = n1 * n1;
+                printf("\n===> O quadrado de %.2f eh (The square of %.2f is): %.2f\n",n1, n1, res);
+                break;
+
+            case 6:
+                // raiz quadrada
+                printf(" Voce escolheu: Raiz Quadrada (You chose: Square Root)\n");
+                printf("Digite um numero: (Enter a number):");
+                scanf("%f", &n1);
+                if (n1 <  0)
+                {
+                    printf("Numero nao pode ser negativo. (Number cannot be negative)");
+                    printf("\nDigite um numero: (Enter a number): ");
+                    scanf("%f", &n1);
+                }
+                res = sqrt(n1); // usando funcao sqrt() pra encontrar a raiz quadrada
+                printf("\n===> Raiz quadrada de %.0f eh: (Square root of %.0f is:) %.2f\n", n1, n1, res);
+                break;
+
+            case 7:
+                printf("Introduza o numero para calcular seu fatorial:");
+                printf("Enter the number to calculate its factorial):\n");
+                scanf("%f",&n1);
+                if (n1 < 0)
+                {
+                    printf("Numero nao pode ser negativo. (Number cannot be negative)");
+                    printf("\nDigite um numero: (Enter a number): ");
+                    scanf("%f", &n1);
+                }
+                fat = 1;
+                for (i=1; i <= n1; ++i)
+                {
+                    fat = fat * i;
+                }
+                printf("\n===> Fatorial (Factorial) %.2f = %.2f\n", n1, fat);
+                break;
+
+            case 8:
+                printf("Digite o numero de base: (Enter the base number):");
+                scanf("%f",&n1);
+                printf("Digite o expoente: (Enter the exponent):");
+                scanf("%f", &n2);
+                res = pow(n1, n2);
+                printf("\n===> Resultado de %.0f elevado a %.0f: (Result of %.0f raised to %.0f):", n1, n2, n1, n2);
+                printf("%.2f\n", res);
+                break;
+            case 9:
+                printf("Fim do programa (End of program) \n");
+                break;
+
+            default:
+                printf( "===> Opcao invalida!! (Invalid option!!)\n ");
+                break;
+        }
+        printf(" \n\n **********************************************\n ");
+
+    } while (op!=9);
+
+    return 0;
+}
